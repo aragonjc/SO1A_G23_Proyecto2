@@ -1,1 +1,1 @@
-# SO1A_G23_Proyecto2
+# COVID-19 Realtime Vaccinated People Visualizer
