@@ -1,10 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const routes = require('./routes/routes');
 const mongoose = require('mongoose');
 const port = 3000;
 
 
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 
 const mongodbURL = "mongodb+srv://adminsopes1p1:adminsopes1p1@cluster0.c9orq.mongodb.net/proyecto?retryWrites=true&w=majority";

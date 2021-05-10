@@ -14,4 +14,27 @@ router.route('/api/data')
     res.json(data);
 })
 
+router.route('/api/genderbycountry')
+.get(async(req,res) => {
+    const countries = await Vaccine.aggregate([
+        {$group:{
+            _id:"$location",
+            count:{$sum:1}
+        }}
+    ]);
+    const listCountries = countries.map(element => {
+        return element._id
+    });
+    console.log(listCountries);
+    const data = await Vaccine.aggregate([
+        {$group:{
+            _id:{location:"$location",gender:"$gender"},
+            count:{$sum:1}
+        }},
+    ]);
+    const results = {countries:listCountries,data:data}
+    res.json(results);
+})
+
+
 module.exports = router;
