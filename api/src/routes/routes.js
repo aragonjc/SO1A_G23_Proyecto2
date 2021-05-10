@@ -1,5 +1,6 @@
 const express = require('express');
 const Vaccine = require('../models/vaccine');
+const mongoose = require('mongoose')
 
 let router = express.Router();
 
@@ -12,6 +13,14 @@ router.route('/api/data')
     
     //res.set('Access-Control-Allow-Origin', '*');
     res.json(data);
+})
+.post((req,res)=>{
+    let docs = req.body;
+    docs._id = mongoose.Types.ObjectId();
+    let data = new Vaccine(docs);
+    data.save()
+    .then(result => res.send(result))
+    .catch(err => res.send(err));
 })
 
 router.route('/api/genderbycountry')
@@ -34,7 +43,31 @@ router.route('/api/genderbycountry')
     ]);
     const results = {countries:listCountries,data:data}
     res.json(results);
+});
+
+router.route('/api/countries')
+.get(async(req,res)=>{
+    const countries = await Vaccine.aggregate([
+        {$group:{
+            _id:"$location",
+            count:{$sum:1}
+        }}
+    ]);
+    const listCountries = countries.map(element => {
+        return element._id
+    });
+    res.json({countries:listCountries})
 })
 
+router.route('/api/lastbycountry')
+.get(async(req,res) => {
+    const country = req.body.country;
+
+    const lastVaccined = await Vaccine.find({location:country})
+    .sort({createdAt:-1})
+    .limit(5)
+    .then(result => res.json(result))
+    .catch(err => res.json(err));
+});
 
 module.exports = router;

@@ -7,6 +7,8 @@ const Schema = mongoose.Schema({
     gender:String,
     age:Number,
     vaccine_type:String
+},{
+    timestamps: true
 })
 
 module.exports = mongoose.model('vacunados',Schema);
