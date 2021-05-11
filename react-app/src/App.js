@@ -5,7 +5,7 @@ import Home from './Home';
 import Menu from './Menu';
 import ShowData from './ShowData';
 import SearchByCountry from './SearchByCountry';
-
+import ByGender from './ByGender'
 function App() {
   return (
     <Router>
@@ -14,6 +14,7 @@ function App() {
        <Route path='/' exact component={Home}/>
         <Route path='/data' exact component={ShowData} />
         <Route path='/vaccinatedBycountry' exact component={SearchByCountry} />
+        <Route path='/bygender' exact component={ByGender} />
       </Switch>
     </Router>
   );

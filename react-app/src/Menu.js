@@ -22,7 +22,7 @@ export default function Menu() {
                     <ul>
                       <Link to="/">Inicio</Link>
                       <Link to="/data">Datos Recopilados</Link>
-                      <Link to="/data">Vacunados por Genero</Link>
+                      <Link to="/bygender">Vacunados por Genero</Link>
                       <a href="/vaccinatedBycountry">Ultimos Vacunados</a>
                     </ul>
                   </div>
