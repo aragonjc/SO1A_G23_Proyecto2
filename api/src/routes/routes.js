@@ -24,7 +24,22 @@ router.route('/api/data')
 })
 
 router.route('/api/genderbycountry')
-.get(async(req,res) => {
+.post(async(req,res) => {
+    const country = req.body.country;
+    const genderByCountry = await Vaccine.aggregate([
+        {
+            $match:{location:country}
+        },
+        {$group:{
+            _id:"$gender",
+            count:{$sum:1}
+        }}
+    ])
+    .then(result => res.json(result))
+    .catch(err => {console.log(err); res.json({err:err})})
+
+/*
+
     const countries = await Vaccine.aggregate([
         {$group:{
             _id:"$location",
@@ -42,7 +57,7 @@ router.route('/api/genderbycountry')
         }},
     ]);
     const results = {countries:listCountries,data:data}
-    res.json(results);
+    res.json(results);*/
 });
 
 router.route('/api/countries')
