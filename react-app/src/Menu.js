@@ -21,8 +21,9 @@ export default function Menu() {
                   <div className="btn-group-nav">
                     <ul>
                       <Link to="/">Inicio</Link>
+                      <Link to="/data">Datos Recopilados</Link>
                       <Link to="/data">Vacunados por Genero</Link>
-                      <a href="/">Ultimos Vacunados</a>
+                      <a href="/vaccinatedBycountry">Ultimos Vacunados</a>
                     </ul>
                   </div>
                 </div>

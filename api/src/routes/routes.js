@@ -60,13 +60,13 @@ router.route('/api/countries')
 })
 
 router.route('/api/lastbycountry')
-.get(async(req,res) => {
+.post(async(req,res) => {
     const country = req.body.country;
-
+    console.log(country)
     const lastVaccined = await Vaccine.find({location:country})
     .sort({createdAt:-1})
     .limit(5)
-    .then(result => res.json(result))
+    .then(result =>{ console.log(result); return res.json(result);})
     .catch(err => res.json(err));
 });
 
