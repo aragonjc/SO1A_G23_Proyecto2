@@ -11,13 +11,7 @@ services:
       - 27017:27017
     volumes:
       - db-data:/data/db
-    networks:
-      - networkmongo
 
 volumes:
   db-data:
     driver: local
-
-networks:
-  networkmongo: 
-    driver: bridge
