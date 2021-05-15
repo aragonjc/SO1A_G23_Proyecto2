@@ -17,32 +17,38 @@ export const SidebarData = [
     cName: 'nav-text'
   },*/
   {
-    title: 'Deparatamentos mas Infectados',
-    path: '/depto/top5',
+    title: 'Datos Recopilados',
+    path: '/data',
     //icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
   {
-    title: 'Casos por Estado',
-    path: '/cases/state',
+    title: 'Vacunados por Genero',
+    path: '/bygender',
     //icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },
   {
-    title: 'Casos por Tipo',
-    path: '/cases/infectedtype',
+    title: 'Ultimos Vacunados',
+    path: '/vaccinatedBycountry',
    // icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
   },
   {
-    title: 'Ultimos Casos',
-    path: '/cases/last',
+    title: 'Paises mas Vacunados',
+    path: '/masvacunados',
     //icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },
   {
-    title: 'Rango de Edades',
-    path: '/cases/agesrange',
+    title: 'Vacunados por pais',
+    path: '/AllVaccinatedByCountry',
+    //icon: <IoIcons.IoMdHelpCircle />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Vacunados por edades',
+    path: '/agerange',
     //icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   }

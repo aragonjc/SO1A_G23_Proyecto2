@@ -6,6 +6,7 @@ import Menu from './Menu';
 import ShowData from './ShowData';
 import SearchByCountry from './SearchByCountry';
 import ByGender from './ByGender'
+import TopVacunados from './TopVacunados'
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
         <Route path='/data' exact component={ShowData} />
         <Route path='/vaccinatedBycountry' exact component={SearchByCountry} />
         <Route path='/bygender' exact component={ByGender} />
+        <Route path='/masvacunados' exact component={TopVacunados} />
       </Switch>
     </Router>
   );
