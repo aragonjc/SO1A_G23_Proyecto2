@@ -8,6 +8,8 @@ import SearchByCountry from './SearchByCountry';
 import ByGender from './ByGender'
 import TopVacunados from './TopVacunados'
 import AllVaccinatedByCountry from './AllVaccinatedByCountry'
+import GraphVaccinated from './GraphVaccinated'
+
 function App() {
   return (
     <Router>
@@ -19,6 +21,7 @@ function App() {
         <Route path='/bygender' exact component={ByGender} />
         <Route path='/masvacunados' exact component={TopVacunados} />
         <Route path='/AllVaccinatedByCountry' exact component={AllVaccinatedByCountry} />
+        <Route path='/agerange' exact component={GraphVaccinated} />
       </Switch>
     </Router>
   );
