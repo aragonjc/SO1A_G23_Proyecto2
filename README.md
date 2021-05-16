@@ -30,7 +30,7 @@ observabilidad y la telemetría.
 
 ---
 ## Arquitectura
-![Architectura](https://github.com/echicasprado/SO1A_G23_Proyecto1/blob/main/images/flujo.png)
+![Architectura](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/master/images/arquitectura.png)
 ---
 
 ## Primera parte (generador de tráfico con Locust)
