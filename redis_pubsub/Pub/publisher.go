@@ -61,5 +61,5 @@ func main() {
 func request() {
 	myrouter := mux.NewRouter().StrictSlash(true)
 	myrouter.HandleFunc("/redispub", redispub).Methods("POST")
-	log.Fatal(http.ListenAndServe(":5001", myrouter))
+	log.Fatal(http.ListenAndServe(":3000", myrouter))
 }

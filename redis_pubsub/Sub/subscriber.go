@@ -9,7 +9,10 @@ import (
 	"log"
 	
 	"github.com/go-redis/redis/v8"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
 
 type info struct {
 	Name			string	`json: "name"`
@@ -40,16 +43,32 @@ func main() {
 			panic(err)
 		}
 
-		fmt.Println(msg.Payload)
+		//fmt.Println(msg.Payload)
 		
 		//enviar a bases de datos
 		var nuevo info
 		datos := []byte(msg.Payload)
 		err = json.Unmarshal(datos, &nuevo)
-		//
+		
+		//enviar datos a bd's
 		//Redis
 		rdb.LPush(ctx, "casos", msg.Payload)
 		log.Println(nuevo)
+
+		//Mongo
+		clienteMongo := options.Client().ApplyURI(fmt.Sprintf("mongodb://35.222.44.47:27017/sopes1"))
+		cliente, err := mongo.Connect(context.TODO(),clienteMongo)
+		if err != nil {
+			log.Println(err)
+		}
+
+		//insertar los datos en mongo
+		collection := cliente.Database("sopes1").Collection("vacunados")
+		insertResult, err := collection.InsertOne(context.TODO(), nuevo)
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Println(insertResult)
 	}
 
 }
