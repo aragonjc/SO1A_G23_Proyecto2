@@ -7,8 +7,6 @@
 |201403546|Josué Carlos Pérez Montenegro|
 |201403532|Ever Eduardo Chicas Prado|
 ---
-
----
 ## Descripcion
 Se solicita construir un sistema genérico de arquitectura distribuida que muestre
 estadísticas en tiempo real utilizando Kubernetes y service mesh como Linkerd y
