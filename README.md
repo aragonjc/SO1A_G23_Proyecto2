@@ -1,1 +1,1 @@
-# COVID-19 Realtime Vaccinated People Visualizer
+# Sistemas Operativos 1 Grupo 23
