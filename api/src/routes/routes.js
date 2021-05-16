@@ -11,7 +11,7 @@ router.route('/api/data')
     console.log("----------------------------------");
     const data = await Vaccine.find({});
     
-    //res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Origin', '*');
     res.json(data);
 })
 .post((req,res)=>{
@@ -26,6 +26,7 @@ router.route('/api/data')
 router.route('/api/genderbycountry')
 .post(async(req,res) => {
     const country = req.body.country;
+    res.set('Access-Control-Allow-Origin', '*')
     const genderByCountry = await Vaccine.aggregate([
         {
             $match:{location:country}
@@ -71,6 +72,7 @@ router.route('/api/countries')
     const listCountries = countries.map(element => {
         return element._id
     });
+    res.set('Access-Control-Allow-Origin', '*')
     res.json({countries:listCountries})
 })
 
@@ -78,6 +80,7 @@ router.route('/api/lastbycountry')
 .post(async(req,res) => {
     const country = req.body.country;
     console.log(country)
+    res.set('Access-Control-Allow-Origin', '*')
     const lastVaccined = await Vaccine.find({location:country})
     .sort({createdAt:-1})
     .limit(5)
