@@ -12,7 +12,7 @@ export default function SearchGender({country}) {
             headers: { 'Content-Type': 'application/json' },
             body:JSON.stringify({ country: country })
         };
-        const url = "http://localhost:3000/api/genderbycountry"
+        const url = "http://34.66.107.110:3000/api/genderbycountry"
         const result = await fetch(url,requestOptions);
         const dataset = await result.json();
         setData(dataset);

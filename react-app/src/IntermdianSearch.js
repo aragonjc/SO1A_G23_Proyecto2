@@ -37,7 +37,7 @@ export default function IntermedianSearch({country}) {
             headers: { 'Content-Type': 'application/json' },
             body:JSON.stringify({ country: country })
         };
-        const url = "http://localhost:3000/api/lastbycountry"
+        const url = "http://34.66.107.110:3000/api/lastbycountry"
         const result = await fetch(url,requestOptions);
         const dataset = await result.json();
         setData(dataset);

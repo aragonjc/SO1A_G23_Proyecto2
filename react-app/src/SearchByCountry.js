@@ -12,7 +12,7 @@ export default function SearchByCountry() {
 
     useEffect(() => {
         (async () => {
-        const url = "http://localhost:3000/api/countries"
+        const url = "http://34.66.107.110:3000/api/countries"
         const result = await fetch(url);
         const dataset = await result.json();
         setData(dataset.countries);
