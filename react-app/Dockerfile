@@ -1,12 +1,15 @@
-FROM node:14 as build-step
-RUN mkdir /app
+FROM node:12.16.3-alpine as build
+
 WORKDIR /app
-COPY package.json /app
-RUN npm install
-COPY . /app
 
-RUN npm run build
+COPY . ./
 
-FROM nginx:1.17.1-alpine
-COPY --from=build-step /app/build /usr/share/nginx/html
+# ---
+FROM fholzer/nginx-brotli:v1.12.2
 
+WORKDIR /etc/nginx
+ADD nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
