@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  kafkaserver:
+    build: ./consumer
+    ports:
+      - "9092:9092"
+    networks:
+      - kafka-app
+
+  kafkaclient:
+    build: ./producer
+    ports:
+      - "3000:3000"
+    networks:
+      - kafka-app
+
+networks:
+  kafka-app:
+    driver: "bridge"
