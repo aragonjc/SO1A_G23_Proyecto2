@@ -20,7 +20,7 @@ type caso struct {
 func main() {
 
 	app := fiber.New()
-	api := app.Group("/api") // /api
+	api := app.Group("/redispub") // /api
 
 	api.Post("/", createComment)
 
