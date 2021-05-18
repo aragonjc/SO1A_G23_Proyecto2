@@ -28,7 +28,7 @@ observabilidad y la telemetría.
 
 ---
 ## Arquitectura
-![Architectura](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/master/images/arquitectura.png)
+![Architectura](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/arquitectura.png)
 ---
 
 ## Primera parte (generador de tráfico con Locust)
@@ -205,10 +205,16 @@ app.use(express.json());
 ```
 
 ### APP
-![Home]()
-![Datos]()
-![Top edades]()
-![Genero]()
-![Top paises]()
+![Home](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/home.jpeg)
+---
+![Datos](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/datos.jpeg)
+---
+![Top edades](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/edades.jpeg)
+---
+![Genero](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/genero.jpeg)
+---
+![Top paises](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/top_pais.jpeg)
+---
 ![Ultimos vacunados]()
+---
 ![Vacunados]()
