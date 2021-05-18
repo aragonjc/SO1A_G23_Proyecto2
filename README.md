@@ -215,6 +215,7 @@ app.use(express.json());
 ---
 ![Top paises](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/top_pais.jpeg)
 ---
-![Ultimos vacunados]()
+![Ultimos vacunados](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/ultimos_vacunados.jpeg)
 ---
-![Vacunados]()
+![Vacunados](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/vacunados.jpeg)
+---
