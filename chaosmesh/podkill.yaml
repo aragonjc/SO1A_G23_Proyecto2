@@ -1,0 +1,16 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-kill-example
+  namespace: project
+spec:
+  action: pod-kill
+  mode: one
+  selector:
+    labelSelectors:
+       'app': 'grpc'
+  scheduler:
+    cron: '@every 10s'
+
+
+    

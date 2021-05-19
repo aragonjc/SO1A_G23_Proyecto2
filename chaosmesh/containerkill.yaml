@@ -1,0 +1,14 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: container-kill
+  namespace: project
+spec:
+  action: container-kill
+  mode: one
+  containerName: 'redispub'
+  selector:
+    labelSelectors:
+      'app': 'redispub'
+  scheduler:
+    cron: '@every 10s'
