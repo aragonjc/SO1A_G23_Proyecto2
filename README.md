@@ -31,6 +31,113 @@ observabilidad y la telemetría.
 ![Architectura](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/arquitectura.png)
 ---
 
+## Estructura de proyecto
+```
+├── api
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   └── src
+│       ├── models
+│       │   └── vaccine.js
+│       ├── routes
+│       │   └── routes.js
+│       └── server.js
+├── gRPC
+│   ├── client
+│   │   ├── client.go
+│   │   ├── Dockerfile
+│   │   ├── go.mod
+│   │   └── go.sum
+│   ├── docker-compose.yml
+│   └── server
+│       ├── Dockerfile
+│       ├── go.mod
+│       ├── go.sum
+│       └── server.go
+├── images
+│   ├── arquitectura.png
+│   ├── datos.jpeg
+│   ├── edades.jpeg
+│   ├── genero.jpeg
+│   ├── home.jpeg
+│   ├── top_pais.jpeg
+│   ├── ultimos_vacunados.jpeg
+│   └── vacunados.jpeg
+├── locust.py
+├── mongo
+│   └── docker-compose.yml
+├── react-app
+│   ├── Dockerfile
+│   ├── nginx.conf
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── README.md
+│   └── src
+│       ├── AllVaccinatedByCountry.js
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── BarChart.js
+│       ├── ByGender.js
+│       ├── DataTable.js
+│       ├── GraphVaccinated.js
+│       ├── HamburgerMenu.js
+│       ├── Home.js
+│       ├── index.js
+│       ├── IntermdianSearch.js
+│       ├── logo.svg
+│       ├── Mapa.js
+│       ├── Menu.js
+│       ├── PieGraph.js
+│       ├── reportWebVitals.js
+│       ├── resources
+│       │   ├── img
+│       │   │   ├── bottom-blur-circle.svg
+│       │   │   └── top-blur-circle.svg
+│       │   ├── js
+│       │   │   └── SidebarData.js
+│       │   └── styles
+│       │       ├── barchart.css
+│       │       ├── index.css
+│       │       ├── Navbar.css
+│       │       ├── search.css
+│       │       └── showData.css
+│       ├── SearchByCountry.js
+│       ├── SearchGender.js
+│       ├── setupTests.js
+│       ├── ShowData.js
+│       ├── ShowGraphBar.js
+│       ├── ShowPeopleByCountry.js
+│       └── TopVacunados.js
+├── README.md
+├── redis
+│   └── docker-compose.yml
+├── redis_pubsub
+│   ├── Pub
+│   │   ├── Dockerfile
+│   │   ├── go.mod
+│   │   ├── go.sum
+│   │   └── publisher.go
+│   └── Sub
+│       ├── Dockerfile
+│       ├── go.mod
+│       ├── go.sum
+│       └── subscriber.go
+├── serverless
+│   ├── package.json
+│   ├── topCountries.js
+│   └── vacunadosPais.js
+└── traffic.json
+```
+---
 ## Primera parte (generador de tráfico con Locust)
 ```
 [
