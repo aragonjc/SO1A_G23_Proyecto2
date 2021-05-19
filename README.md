@@ -447,6 +447,4 @@ app.use(express.json());
 ![Vacunados](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/vacunados.jpeg)
 ---
 
-### Preguntas
-![Preguntas](https://docs.google.com/document/d/1rvIUfxCOtnW9j4q_MbBLqJmF2tudZQwOs_lNvRvfXGw/edit#)
----
+### [Preguntas](https://docs.google.com/document/d/1rvIUfxCOtnW9j4q_MbBLqJmF2tudZQwOs_lNvRvfXGw/edit#)
