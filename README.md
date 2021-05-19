@@ -153,6 +153,81 @@ observabilidad y la telemetría.
 
 ## Segunda parte (Docker, Kubernetes y balanceadores de carga)
 
+### Kubernetes
+```
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+      grpc_set_header l5d-dst-override $service_name.$namespace.svc.cluster.local:$service_port;
+    ingress.kubernetes.io/rewrite-target: /
+  name: redispub-ingress
+  namespace: project
+spec:
+  rules:
+    - host: redis.proyecto2-grupo23.cf
+      http:
+        paths:
+          - backend:
+              serviceName: redispub
+              servicePort: 3000
+---
+apiVersion: split.smi-spec.io/v1alpha1
+kind: TrafficSplit
+metadata:
+  name: function-split
+  namespace: project
+spec:
+  service: dummy
+  backends:
+  - service: grpc
+    weight: 500m
+  - service: redispub
+    weight: 500m
+```
+
+### Chaos mesh
+```
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  namespace: project
+  name: account-project-manager-tjcbm
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: project
+  name: role-project-manager-tjcbm
+rules:
+- apiGroups: [""]
+  resources: ["pods", "namespaces"]
+  verbs: ["get", "watch", "list"]
+- apiGroups:
+  - chaos-mesh.org
+  resources: [ "*" ]
+  verbs: ["get", "list", "watch", "create", "delete", "patch", "update"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-project-manager-tjcbm
+  namespace: project
+subjects:
+- kind: ServiceAccount
+  name: account-project-manager-tjcbm
+  namespace: project
+roleRef:
+  kind: Role
+  name: role-project-manager-tjcbm
+  apiGroup: rbac.authorization.k8s.io
+```
+
 ---
 ## Tercera parte (RPC, brokers y bases de datos NoSQL)
 
@@ -225,6 +300,51 @@ COPY . .
 RUN go mod download
 
 CMD ["go", "run", "subscriber.go"]
+```
+
+### Kafka
+
+#### Consumer
+```
+FROM golang
+WORKDIR /
+COPY . .
+RUN go mod download
+EXPOSE 9092
+CMD ["go", "run", "consumer.go"]
+```
+
+#### Producer
+```
+FROM golang
+WORKDIR /
+COPY . .
+RUN go mod download
+EXPOSE 3000
+CMD ["go", "run", "producer.go"]
+```
+
+#### Docker compose
+```
+version: "3.3"
+services:
+  kafkaserver:
+    build: ./consumer
+    ports:
+      - "9092:9092"
+    networks:
+      - kafka-app
+
+  kafkaclient:
+    build: ./producer
+    ports:
+      - "3000:3000"
+    networks:
+      - kafka-app
+
+networks:
+  kafka-app:
+    driver: "bridge"
 ```
 
 ---
@@ -325,4 +445,8 @@ app.use(express.json());
 ![Ultimos vacunados](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/ultimos_vacunados.jpeg)
 ---
 ![Vacunados](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/develop/images/vacunados.jpeg)
+---
+
+### Preguntas
+![Preguntas]()
 ---
