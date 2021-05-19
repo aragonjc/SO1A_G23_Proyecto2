@@ -137,7 +137,9 @@ observabilidad y la telemetría.
 │   └── vacunadosPais.js
 └── traffic.json
 ```
+![Architectura](https://github.com/aragonjc/SO1A_G23_Proyecto2/blob/master/images/arquitectura.png)
 ---
+
 ## Primera parte (generador de tráfico con Locust)
 ```
 [
@@ -152,7 +154,6 @@ observabilidad y la telemetría.
 ```
 
 ## Segunda parte (Docker, Kubernetes y balanceadores de carga)
-
 ### Kubernetes
 ```
 kind: Ingress
@@ -448,3 +449,9 @@ app.use(express.json());
 ---
 
 ### [Preguntas](https://docs.google.com/document/d/1rvIUfxCOtnW9j4q_MbBLqJmF2tudZQwOs_lNvRvfXGw/edit#)
+---
+## Tercera parte (RPC, brokers y bases de datos NoSQL)
+---
+## Cuarta parte (base de datos NoSQL)
+---
+## Quinta parte (sitio web)
