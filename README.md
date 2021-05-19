@@ -448,5 +448,5 @@ app.use(express.json());
 ---
 
 ### Preguntas
-![Preguntas]()
+![Preguntas](https://docs.google.com/document/d/1rvIUfxCOtnW9j4q_MbBLqJmF2tudZQwOs_lNvRvfXGw/edit#)
 ---
