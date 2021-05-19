@@ -1,0 +1,15 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-failure-example
+  namespace: project
+spec:
+  action: pod-failure
+  mode: one
+  value: ''
+  duration: '30s'
+  selector:
+    labelSelectors:
+      'app': 'grpc'
+  scheduler:
+    cron: '@every 2m'
